@@ -1,5 +1,4 @@
 import streamlit as st
-from datetime import datetime
 
 st.set_page_config(
     page_title="Imbo Nomxesibe Hearty Meals | Event Catering",
@@ -7,7 +6,6 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom Styling inspired by Fork & Nice
 st.markdown("""
 <style>
     .stApp {
@@ -87,7 +85,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Initialize Portfolio Data in Session State
 if "portfolio" not in st.session_state:
     st.session_state.portfolio = [
         {
@@ -113,7 +110,6 @@ if "portfolio" not in st.session_state:
         }
     ]
 
-# Top Contact Bar
 st.markdown("""
 <div class="top-bar">
     <span><strong>Imbo Nomxesibe Hearty Meals</strong> — School, State & Corporate Catering</span>
@@ -121,7 +117,6 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Top Navigation Tabs
 page = st.radio(
     "Navigation",
     ["Home", "Our Portfolio", "Contact Us"],
@@ -131,9 +126,6 @@ page = st.radio(
 
 st.divider()
 
-# ==========================================
-# PAGE 1: HOME
-# ==========================================
 if page == "Home":
     st.markdown("""
     <div class="hero-box">
@@ -143,7 +135,6 @@ if page == "Home":
     </div>
     """, unsafe_allow_html=True)
 
-    # About Section
     col1, col2 = st.columns([1, 1.2], gap="large")
     with col1:
         st.image(
@@ -225,14 +216,10 @@ if page == "Home":
     with w3:
         st.info("**What Our Clients Say**\n\n*\"Imbo Nomxesibe catered for over 250 guests at our school awards ceremony. Piped hot, well-seasoned, and right on time.\"*")
 
-# ==========================================
-# PAGE 2: OUR PORTFOLIO (WITH MANUAL UPLOAD)
-# ==========================================
 elif page == "Our Portfolio":
     st.header("Event Portfolio & Past Projects")
     st.write("Browse summaries of school, state, and corporate events catered by **Imbo Nomxesibe Hearty Meals**, or add new entries manually below.")
 
-    # Manual Portfolio Entry Form
     with st.expander("➕ Add New Portfolio Event (Manual Entry)", expanded=False):
         with st.form("manual_portfolio_form", clear_on_submit=True):
             c1, c2 = st.columns(2)
@@ -241,3 +228,10 @@ elif page == "Our Portfolio":
                 p_category = st.selectbox("Event Category *", ["School Event", "State Event", "Corporate Meeting"])
                 p_guests = st.text_input("Guests Served & Venue/Date *", placeholder="e.g. 180 Guests • November 2026")
             with c2:
+                p_photo = st.file_uploader("Upload Event Photo (JPG/PNG)", type=["jpg", "jpeg", "png"])
+                p_url = st.text_input("Or Paste Image URL (Optional)", placeholder="https://example.com")
+            p_summary = st.text_area("Event Summary & Menu Highlights *", placeholder="Describe the dishes served, setup, and event outcome...")
+
+            submitted = st.form_submit_button("Save to Portfolio")
+            if submitted:
+                if p_title and p_guests and p_summary:
