@@ -10,25 +10,27 @@
       --primary-dark: #632712;
       --accent: #d97706;
       --dark: #1c1917;
-      --text-muted: #57534e;
-      --bg-cream: #faf8f5;
+      --muted: #57534e;
+      --cream: #faf8f5;
       --white: #ffffff;
       --border: #e7e5e4;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       color: var(--dark);
-      background-color: var(--bg-cream);
+      background-color: var(--cream);
       line-height: 1.65;
     }
 
+    /* Top Contact Bar */
     .top-bar {
       background: var(--dark);
       color: #e7e5e4;
       font-size: 0.85rem;
-      padding: 0.5rem 1.5rem;
+      padding: 0.55rem 1.5rem;
     }
     .top-bar-inner {
       max-width: 1180px;
@@ -39,13 +41,14 @@
       gap: 0.5rem;
     }
 
+    /* Sticky Navigation */
     header {
       background: var(--white);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
     .nav-container {
       max-width: 1180px;
@@ -57,20 +60,16 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
-    .brand {
-      text-decoration: none;
-      color: var(--primary);
-      cursor: pointer;
-    }
     .brand h1 {
       font-size: 1.35rem;
-      letter-spacing: 0.5px;
+      color: var(--primary);
       text-transform: uppercase;
+      letter-spacing: 0.5px;
       line-height: 1.2;
     }
     .brand span {
       font-size: 0.78rem;
-      color: var(--text-muted);
+      color: var(--muted);
       letter-spacing: 1.5px;
       display: block;
     }
@@ -80,27 +79,20 @@
       gap: 1.5rem;
       flex-wrap: wrap;
     }
-    nav button.nav-link {
-      background: none;
-      border: none;
-      font-size: 0.98rem;
-      font-weight: 600;
+    nav a {
+      text-decoration: none;
       color: var(--dark);
-      cursor: pointer;
-      padding: 0.3rem 0;
-      border-bottom: 2px solid transparent;
-      transition: all 0.2s;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
     }
-    nav button.nav-link:hover,
-    nav button.nav-link.active {
-      color: var(--primary);
-      border-bottom-color: var(--primary);
-    }
+    nav a:hover { color: var(--primary); }
+
     .btn {
       display: inline-block;
       background: var(--primary);
-      color: var(--white);
-      padding: 0.75rem 1.5rem;
+      color: var(--white) !important;
+      padding: 0.7rem 1.4rem;
       border-radius: 5px;
       text-decoration: none;
       font-weight: 600;
@@ -113,24 +105,22 @@
     .btn-outline {
       background: transparent;
       border: 2px solid var(--primary);
-      color: var(--primary);
+      color: var(--primary) !important;
     }
     .btn-outline:hover {
       background: var(--primary);
-      color: var(--white);
+      color: var(--white) !important;
     }
 
-    .page-view { display: none; }
-    .page-view.active { display: block; }
-
+    /* Hero Banner */
     .hero {
-      background: linear-gradient(rgba(28, 25, 23, 0.72), rgba(28, 25, 23, 0.72)),
+      background: linear-gradient(rgba(28, 25, 23, 0.75), rgba(28, 25, 23, 0.75)),
                   url('https://unsplash.com') center/cover no-repeat;
       color: var(--white);
       text-align: center;
-      padding: 6.5rem 1.5rem;
+      padding: 6rem 1.5rem;
     }
-    .hero .eyebrow {
+    .eyebrow {
       color: #fbbf24;
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -139,25 +129,31 @@
       margin-bottom: 0.75rem;
     }
     .hero h2 {
-      font-size: 2.75rem;
+      font-size: 2.6rem;
       max-width: 820px;
       margin: 0 auto 1rem;
       line-height: 1.2;
     }
     .hero p {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       max-width: 680px;
       margin: 0 auto 2rem;
       color: #e7e5e4;
     }
-    .hero-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
+    /* Sections */
     .section {
       max-width: 1180px;
       margin: auto;
       padding: 4.5rem 1.5rem;
     }
-    .section-bg-white {
+    .bg-white {
       background: var(--white);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
@@ -167,7 +163,7 @@
       max-width: 720px;
       margin: 0 auto 3rem;
     }
-    .section-header .tag {
+    .tag {
       color: var(--primary);
       font-weight: 700;
       font-size: 0.82rem;
@@ -175,11 +171,12 @@
       letter-spacing: 1.5px;
     }
     .section-header h3 {
-      font-size: 2.1rem;
+      font-size: 2.05rem;
       margin: 0.35rem 0 0.75rem;
     }
-    .section-header p { color: var(--text-muted); }
+    .section-header p { color: var(--muted); }
 
+    /* Grids & Cards */
     .split-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -222,52 +219,46 @@
     }
     .card h4 {
       color: var(--primary);
-      font-size: 1.25rem;
+      font-size: 1.22rem;
       margin-bottom: 0.75rem;
     }
 
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
     }
     .menu-box {
-      background: var(--bg-cream);
+      background: var(--cream);
       border-left: 4px solid var(--primary);
       padding: 1.5rem;
       border-radius: 6px;
     }
-    .menu-box h4 { margin-bottom: 0.5rem; color: var(--dark); }
+    .menu-box h4 { margin-bottom: 0.5rem; }
 
-    .testimonial-card {
-      background: var(--bg-cream);
-      padding: 1.75rem;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-    .testimonial-card p { font-style: italic; margin-bottom: 1rem; color: var(--text-muted); }
-    .testimonial-card strong { color: var(--primary); }
-
+    /* Manual Portfolio Area */
     .portfolio-controls {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 1.75rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
-    .portfolio-header-bar {
+    .portfolio-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
     }
-    #manual-form-container {
+    .manual-form {
       display: none;
       margin-top: 1.5rem;
       padding-top: 1.5rem;
       border-top: 1px solid var(--border);
     }
+    .manual-form.open { display: block; }
+
     .filter-bar {
       display: flex;
       gap: 0.75rem;
@@ -287,6 +278,7 @@
       background: var(--primary);
       color: var(--white);
     }
+
     .portfolio-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -320,7 +312,7 @@
     }
     .portfolio-meta {
       font-size: 0.85rem;
-      color: var(--text-muted);
+      color: var(--muted);
       margin-bottom: 0.75rem;
     }
     .delete-btn {
@@ -335,6 +327,7 @@
       width: fit-content;
     }
 
+    /* Forms */
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -357,6 +350,21 @@
       font-size: 0.95rem;
     }
 
+    /* Testimonials */
+    .testimonial-card {
+      background: var(--cream);
+      padding: 1.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .testimonial-card p {
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+    .testimonial-card strong { color: var(--primary); }
+
+    /* Floating WhatsApp Button */
     .floating-chat {
       position: fixed;
       bottom: 20px;
@@ -371,6 +379,7 @@
       z-index: 999;
     }
 
+    /* Footer */
     footer {
       background: var(--dark);
       color: #d6d3d1;
@@ -401,11 +410,14 @@
 </head>
 <body>
 
+  <!-- Top Bar -->
   <div class="top-bar">
     <div class="top-bar-inner">
-      <span>Serving Schools, Government Departments & Corporate Offices</span>
+      <span>Serving Schools, State Departments & Corporate Offices</span>
       <span>Tel: 000 000 0000 | Email: info@imbonomxesibe.co.za</span>
     </div>
   </div>
 
+  <!-- Header & Navigation -->
   <header>
+    <div class="nav-container">
