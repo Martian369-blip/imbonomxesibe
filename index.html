@@ -6,9 +6,9 @@
   <title>Imbo Nomxesibe Hearty Meals | School, State & Corporate Event Catering</title>
   <style>
     :root {
-      --primary: #8b3a1d;       /* Rich earthy terracotta/spice */
+      --primary: #8b3a1d;
       --primary-dark: #632712;
-      --accent: #d97706;        /* Warm gold/amber */
+      --accent: #d97706;
       --dark: #1c1917;
       --text-muted: #57534e;
       --bg-cream: #faf8f5;
@@ -24,7 +24,6 @@
       line-height: 1.65;
     }
 
-    /* Top Bar (Inspired by Fork & Nice) */
     .top-bar {
       background: var(--dark);
       color: #e7e5e4;
@@ -40,7 +39,6 @@
       gap: 0.5rem;
     }
 
-    /* Main Header & Nav */
     header {
       background: var(--white);
       border-bottom: 1px solid var(--border);
@@ -122,11 +120,9 @@
       color: var(--white);
     }
 
-    /* Page Views */
     .page-view { display: none; }
     .page-view.active { display: block; }
 
-    /* Hero */
     .hero {
       background: linear-gradient(rgba(28, 25, 23, 0.72), rgba(28, 25, 23, 0.72)),
                   url('https://unsplash.com') center/cover no-repeat;
@@ -156,7 +152,6 @@
     }
     .hero-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
 
-    /* Sections */
     .section {
       max-width: 1180px;
       margin: auto;
@@ -185,7 +180,6 @@
     }
     .section-header p { color: var(--text-muted); }
 
-    /* About Split */
     .split-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -214,7 +208,6 @@
       left: 0;
     }
 
-    /* Cards Grid */
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -233,7 +226,6 @@
       margin-bottom: 0.75rem;
     }
 
-    /* Menu Showcase */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -247,7 +239,6 @@
     }
     .menu-box h4 { margin-bottom: 0.5rem; color: var(--dark); }
 
-    /* Testimonials */
     .testimonial-card {
       background: var(--bg-cream);
       padding: 1.75rem;
@@ -257,7 +248,6 @@
     .testimonial-card p { font-style: italic; margin-bottom: 1rem; color: var(--text-muted); }
     .testimonial-card strong { color: var(--primary); }
 
-    /* Portfolio & Manual Builder */
     .portfolio-controls {
       background: var(--white);
       border: 1px solid var(--border);
@@ -345,7 +335,6 @@
       width: fit-content;
     }
 
-    /* Forms */
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -368,7 +357,6 @@
       font-size: 0.95rem;
     }
 
-    /* Floating WhatsApp Button (Like Fork & Nice) */
     .floating-chat {
       position: fixed;
       bottom: 20px;
@@ -383,7 +371,6 @@
       z-index: 999;
     }
 
-    /* Footer */
     footer {
       background: var(--dark);
       color: #d6d3d1;
@@ -406,3 +393,19 @@
       color: #a8a29e;
     }
 
+    @media (max-width: 768px) {
+      .split-grid, .form-grid { grid-template-columns: 1fr; }
+      .hero h2 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <span>Serving Schools, Government Departments & Corporate Offices</span>
+      <span>Tel: 000 000 0000 | Email: info@imbonomxesibe.co.za</span>
+    </div>
+  </div>
+
+  <header>
