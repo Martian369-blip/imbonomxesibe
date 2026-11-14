@@ -1,4 +1,4 @@
-import streamlit as st
+yimport streamlit as st
 
 st.set_page_config(page_title="Portfolio | Imbo Nomxesibe Hearty Meals", page_icon="📸", layout="wide")
 
