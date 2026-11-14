@@ -116,7 +116,6 @@ st.markdown("""
         text-align: center;
         border-top: 4px solid #eab308;
     }
-    /* Style the top navigation tabs */
     .stTabs [data-baseweb="tab-list"] {
         gap: 12px;
         background-color: #fef9c3;
@@ -131,7 +130,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Top Contact Bar
 st.markdown("""
 <div class="top-bar">
     <span><strong>Imbo Nomxesibe Hearty Meals</strong> — Mfuleni, Cape Town</span>
@@ -139,7 +137,6 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Clickable Top Tabs (Single-File Navigation)
 tab_home, tab_about, tab_portfolio, tab_contact = st.tabs([
     "🏠 Home",
     "🍲 About Us",
@@ -147,9 +144,6 @@ tab_home, tab_about, tab_portfolio, tab_contact = st.tabs([
     "📞 Contact Us"
 ])
 
-# ==========================================
-# TAB 1: HOME
-# ==========================================
 with tab_home:
     st.markdown("""
     <div class="hero-box">
@@ -183,9 +177,6 @@ with tab_home:
         </div>
         """, unsafe_allow_html=True)
 
-# ==========================================
-# TAB 2: ABOUT US
-# ==========================================
 with tab_about:
     st.header("About Imbo Nomxesibe Hearty Meals")
     st.write("Rooted in hospitality, generous portions, and dependable event execution across Cape Town.")
@@ -232,30 +223,37 @@ with tab_about:
         </div>
         """, unsafe_allow_html=True)
 
-# ==========================================
-# TAB 3: PORTFOLIO
-# ==========================================
 with tab_portfolio:
     st.header("Event Portfolio & Past Projects")
     st.write("Explore our catering track record across schools, state departments, and corporate offices. Use the manual uploader below to add real event photos and summaries.")
 
-    if "portfolio_items" not in st.session_state:
-        st.session_state.portfolio_items = [
-            {
-                "title": "School Function Showcase (Content Pending)",
-                "category": "School Event",
-                "guests": "Guest Count & School Name • Date Pending",
-                "has_image": False,
-                "image": None,
-                "summary": "Placeholder summary: Full buffet and lunch pack catering for school awards, sports days, or staff workshops. Upload real event photos and menu highlights using the form above."
-            },
-            {
-                "title": "State & Municipal Event Showcase (Content Pending)",
-                "category": "State Event",
-                "guests": "Delegate Count & Department • Date Pending",
-                "has_image": False,
-                "image": None,
-                "summary": "Placeholder summary: Multi-station hearty buffet and refreshment service for government conferences and community imbizo events. Ready for your official event photos."
-            },
-            {
-                "title": "Corporate Meeting Showcase (Content Pending)",
+    if "portfolio_rows" not in st.session_state:
+        st.session_state.portfolio_rows = [
+            [
+                "School Function Showcase (Content Pending)",
+                "School Event",
+                "Guest Count & School Name • Date Pending",
+                None,
+                "Placeholder summary: Full buffet and lunch pack catering for school awards, sports days, or staff workshops. Upload real event photos and menu highlights using the form above."
+            ],
+            [
+                "State & Municipal Event Showcase (Content Pending)",
+                "State Event",
+                "Delegate Count & Department • Date Pending",
+                None,
+                "Placeholder summary: Multi-station hearty buffet and refreshment service for government conferences and community imbizo events. Ready for your official event photos."
+            ],
+            [
+                "Corporate Meeting Showcase (Content Pending)",
+                "Corporate Meeting",
+                "Executive Group & Venue • Date Pending",
+                None,
+                "Placeholder summary: Morning breakfast platters and warm boardroom lunches delivered on schedule. Add your corporate client summary and photos here."
+            ]
+        ]
+
+    with st.expander("➕ Add Real Portfolio Event & Photo Manually", expanded=False):
+        with st.form("add_event_form", clear_on_submit=True):
+            p_col1, p_col2 = st.columns(2)
+            with p_col1:
+                title = st.text_input("Event Title *", placeholder="e.g. Mfuleni High School Prize-Giving")
